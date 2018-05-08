@@ -54,7 +54,11 @@ public class Client implements Runnable, KeyListener{
         }
         try {
             out = new PrintWriter(socket.getOutputStream(), true);
-            out.print(e.getKeyChar());
+            //System.out.println((int)e.getKeyChar());
+            if(((int)e.getKeyChar()) == 8)
+                out.print("-1");
+            else
+                out.print(e.getKeyChar());
         } catch (IOException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }

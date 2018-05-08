@@ -41,13 +41,20 @@ public class Server implements Runnable{
                 
                 ServerSocket serverSocket = new ServerSocket(porta+n);
                 clientSocket = serverSocket.accept();
-                System.out.println("connessione accettata");
+                //System.out.println("connessione accettata");
                 in = new BufferedReader(
                         new InputStreamReader(clientSocket.getInputStream()));
                 
                 
                 String b = in.readLine();
-                if(b!= null)
+                System.out.println(b);
+                if(b!= null && b.equals("-1"))
+                    try{
+                    a = a.substring(0,a.length()-1);
+                    }catch(Exception e){
+                        System.out.println(e.toString());
+                    }
+                else if(b!= null)
                     a+=b;
                 txt.setText(a);
                 
