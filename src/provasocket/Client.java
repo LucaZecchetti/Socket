@@ -27,9 +27,12 @@ public class Client implements Runnable, KeyListener{
     private JTextField scrivi;
     private Socket socket;
     
-    public Client(int porta, String indirizzo, JTextField scrittura){
+    public Client(int porta, String indirizzo, JTextField scrittura, JTextField ind){
         this.porta = porta;
-        this.indirizzo = indirizzo;
+        if(ind.getText().equals(""))
+            this.indirizzo = indirizzo;
+        else
+            this.indirizzo = ind.getText();
         this.scrivi = scrittura;
     }
     
@@ -37,6 +40,7 @@ public class Client implements Runnable, KeyListener{
     public void run() {
         scrivi.addKeyListener(this);
     }
+
     
     int n=0;
 
