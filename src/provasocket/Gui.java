@@ -16,7 +16,7 @@ public class Gui extends javax.swing.JFrame {
      */
     
     private int porta = 1500;
-    private String a = "79.45.94.232";
+    private String a = "127.0.0.1";
     
     public Gui() {
         initComponents();
